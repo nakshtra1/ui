@@ -1,38 +1,69 @@
 .App {
+  /* text-align: center; */
+  background-color: #f3f4f6;
+}
+.fa {
+  padding: 15px;
+  font-size: 15px;
+  width: 41px;
   text-align: center;
+  text-decoration: none;
+  border-radius: 50%;;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+
+/* Navbar.css */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.navbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-row-1 {
+  background-color: #FF5733; /* First row color */
+}
+
+.navbar-row-2 {
+  background-color: #007BFF; /* Second row color */
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-items {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  cursor: pointer;
 }
