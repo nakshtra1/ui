@@ -57,7 +57,7 @@ const Inner = () => {
               className="d-flex justify-content-center m-5"
               style={{ backgroundColor: "white" }}
             >
-              <img src={img2} alt="" />
+              <img src={img2} alt="" className="img-fluid" />
             </div>
           </div>
           <InnerContent1 />
