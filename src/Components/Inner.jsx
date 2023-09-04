@@ -3,6 +3,7 @@ import img from "../Img/1.PNG";
 import img1 from "../Img/2.PNG";
 import img2 from "../Img/3.PNG";
 import InnerContent1 from "./InnerContent1";
+import InnerContain2 from './InnerContain2'
 
 const Inner = () => {
   return (
@@ -40,7 +41,7 @@ const Inner = () => {
             </div>
           </div>
           <div
-            class="col"
+            class="col-md-6"
             style={{
               paddingLeft: "0px",
               paddingRight: "0px",
@@ -48,7 +49,7 @@ const Inner = () => {
             }}
           >
             <div>
-              <img src={img1} alt="" />
+              <img src={img1} alt="" className="img-fluid" />
             </div>
           </div>
           <div style={{ backgroundColor: "white" }}>
@@ -62,6 +63,7 @@ const Inner = () => {
           <InnerContent1 />
         </div>
       </div>
+      <InnerContain2 />
     </div>
   );
 };

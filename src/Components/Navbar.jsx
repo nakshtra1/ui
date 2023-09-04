@@ -1,14 +1,37 @@
-// Navbar.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import img from "../Img/logo.PNG";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+  const [showLoginButtons, setShowLoginButtons] = useState(true);
+
+  const toggleLoginButtons = () => {
+    setShowLoginButtons(!showLoginButtons);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setShowLoginButtons(false);
+      } else {
+        setShowLoginButtons(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div class="container">
-      <div class="row">
+    <div className="container">
+      <div className="row">
         <div
-          class="col"
+          className="col"
           style={{ paddingRight: "0px", backgroundColor: "#ffffff" }}
         >
           <nav
@@ -31,23 +54,39 @@ const Navbar = () => {
 
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
-                  <li className="nav-item active">
-                    <Link className="nav-link" to="features">
+                  <li
+                    className={`nav-item ${
+                      location.pathname === "/" ? "active" : ""
+                    }`}
+                  >
+                    <Link className="nav-link" to="/">
                       Features
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="collaboration">
+                  <li
+                    className={`nav-item ${
+                      location.pathname === "/innercontain2" ? "active" : ""
+                    }`}
+                  >
+                    <Link className="nav-link" to="/innercontain2">
                       Collaboration
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="solutions">
+                  <li
+                    className={`nav-item ${
+                      location.pathname === "/innercontainer3" ? "active" : ""
+                    }`}
+                  >
+                    <Link className="nav-link" to="/innercontainer3">
                       Solutions
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="testimonials">
+                  <li
+                    className={`nav-item ${
+                      location.pathname === "/innercontainer4" ? "active" : ""
+                    }`}
+                  >
+                    <Link className="nav-link" to="/innercontainer4">
                       Testimonials
                     </Link>
                   </li>
@@ -56,41 +95,54 @@ const Navbar = () => {
             </div>
           </nav>
         </div>
-        <div
-          class="col"
-          style={{ paddingLeft: "0px",paddingRight: "0px", backgroundColor: "#EFF3F8" }}
-        >
-          <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{backgroundColor:"#EFF3F8"}}>
-            <div className="container">
-              <div
-                className="collapse navbar-collapse"
-                id="navbarNav"
-                style={{ justifyContent: "center" }}
-              >
-                <ul className="navbar-nav ml-auto">
-                  <li className="nav-item active">
-                    <button
-                      type="button"
-                      class="btn btn-link text-decoration-none"
-                      style={{ color: "black" }}
-                    >
-                      Login
-                    </button>
-                  </li>
-                  <li className="nav-item">
-                    <button
-                      type="button"
-                      class="btn btn-light"
-                      style={{ backgroundColor: "#6f62e4", color:"white" }}
-                    >
-                      Sign up
-                    </button>
-                  </li>
-                </ul>
+        {showLoginButtons && (
+          <div
+            className="col"
+            style={{
+              paddingLeft: "0px",
+              paddingRight: "0px",
+              backgroundColor: "#EFF3F8",
+            }}
+          >
+            <nav
+              className="navbar navbar-expand-lg navbar-light bg-light"
+              style={{ backgroundColor: "#EFF3F8" }}
+            >
+              <div className="container">
+                <div
+                  className="collapse navbar-collapse"
+                  id="navbarNav"
+                  style={{ justifyContent: "center" }}
+                >
+                  <ul className="navbar-nav ml-auto">
+                    <li className="nav-item active">
+                      <Link
+                        to="/login"
+                        type="button"
+                        className="btn btn-link text-decoration-none"
+                        style={{ color: "black" }}
+                      >
+                        Login
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        to="/signup"
+                        className="btn btn-light"
+                        style={{
+                          backgroundColor: "#6f62e4",
+                          color: "white",
+                        }}
+                      >
+                        Sign up
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </nav>
-        </div>
+            </nav>
+          </div>
+        )}
       </div>
     </div>
   );

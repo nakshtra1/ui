@@ -2,14 +2,13 @@ import React from "react";
 import img from "../Img/5.PNG";
 import img1 from "../Img/4.PNG";
 
-
 const InnerContent1 = () => {
   return (
     <>
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           <div
-            class="col"
+            className="col"
             style={{ paddingRight: "0px", backgroundColor: "white" }}
           >
             <h1 style={{ fontWeight: "700", paddingLeft: "10px" }}>
@@ -17,12 +16,11 @@ const InnerContent1 = () => {
               <br />
               done in one place.
             </h1>
-            <div class="container">
-              <div class="row">
-                <div></div>
-                <div class="col">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-6">
                   <div>
-                    <img src={img} alt="" />
+                    <img src={img} alt="" className="img-fluid" />
                   </div>
                   <h5>Manage tasks</h5>
                   <p style={{ fontSize: "13px" }}>
@@ -30,9 +28,9 @@ const InnerContent1 = () => {
                     Delectus, quisquam!
                   </p>
                 </div>
-                <div class="col">
+                <div className="col">
                   <div>
-                    <img src={img} alt="" />
+                    <img src={img} alt="" className="img-fluid" />
                   </div>
                   <h5>Productivity</h5>
                   <p style={{ fontSize: "13px" }}>
@@ -40,10 +38,10 @@ const InnerContent1 = () => {
                     Delectus, quisquam!
                   </p>
                 </div>
-                <div class="w-100"></div>
-                <div class="col">
+                <div className="w-100"></div>
+                <div className="col">
                   <div>
-                    <img src={img} alt="" />
+                    <img src={img} alt="" className="img-fluid" />
                   </div>
                   <h5>Knowledge</h5>
                   <p style={{ fontSize: "13px" }}>
@@ -51,9 +49,9 @@ const InnerContent1 = () => {
                     Delectus, quisquam!
                   </p>
                 </div>
-                <div class="col">
+                <div className="col">
                   <div>
-                    <img src={img} alt="" />
+                    <img src={img} alt="" className="img-fluid" />
                   </div>
                   <h5>Collaboration</h5>
                   <p style={{ fontSize: "13px" }}>
@@ -65,18 +63,22 @@ const InnerContent1 = () => {
             </div>
           </div>
           <div
-            class="col"
+            className="col-md-6"
             style={{
               paddingLeft: "0px",
               paddingRight: "0px",
               backgroundColor: "#EFF3F8",
             }}
           >
-            <img style={{ width: "100%" }} src={img1} alt="" />
+            <img
+              style={{ width: "100%" }}
+              src={img1}
+              alt=""
+              className="img-fluid"
+            />
           </div>
         </div>
       </div>
-
     </>
   );
 };
